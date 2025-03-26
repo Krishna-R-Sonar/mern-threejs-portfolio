@@ -6,7 +6,11 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
   const links = ["Home", "About", "Projects", "Skills", "Contact"];
 
   return (
-    <nav className={`fixed w-full ${darkMode ? "bg-gray-900" : "bg-white"} shadow-lg z-50`}>
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        darkMode ? "bg-gray-900" : "bg-white"
+      } md:bg-opacity-100 bg-opacity-100 md:bg-transparent`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
