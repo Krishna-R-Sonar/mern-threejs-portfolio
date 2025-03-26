@@ -1,0 +1,66 @@
+{
+  "name": "portfolio-client",
+  "version": "0.1.0",
+  "proxy": "http://localhost:5000",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@react-three/drei": "^9.121.4",
+    "@react-three/fiber": "^8.16.0",
+    "assert": "^2.1.0",
+    "axios": "^1.6.2",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
+    "clsx": "^2.1.1",
+    "constants-browserify": "^1.0.0",
+    "framer-motion": "^10.16.0",
+    "https-browserify": "^1.0.0",
+    "motion": "^12.5.0",
+    "node-polyfill-webpack-plugin": "^4.1.0",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "react": "^18.2.0",
+    "react-app-rewired": "^2.2.1",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.5.1",
+    "react-router-dom": "^6.22.3",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "tailwind-merge": "^3.0.2",
+    "three": "^0.173.0",
+    "tty-browserify": "^0.0.1",
+    "url": "^0.11.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "glob": "^10.3.10",
+    "react-scripts": "^5.0.1",
+    "rimraf": "^4.4.1",
+    "tailwindcss": "^3.3.5"
+  }
+}
