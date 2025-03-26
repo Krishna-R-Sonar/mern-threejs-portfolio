@@ -8,12 +8,12 @@ const About = ({ darkMode }) => {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className=""max-w-6xl mx-auto"
+        className="max-w-6xl mx-auto"
       >
         <TextRevealCard
           text="About Me"
           revealText="I'm a full-stack developer specializing in building modern web applications with React, Node.js, and Three.js. Passionate about creating interactive 3D experiences."
-          className="mx-auto"
+          className="w-full md:w-[50rem] lg:w-[60rem]"
         />
       </motion.div>
     </section>
