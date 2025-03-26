@@ -10,6 +10,7 @@ import { Contact } from "./components/Contact";
 import MessageList from "./components/Dashboard/MessageList";
 import { skills } from "./components/Skills/SkillsData.js";
 import { SkillCube } from "./components/Skills/SkillCube.jsx";
+import Footer from "./components/Footer";
 
 const App = () => {
   const location = useLocation();
@@ -70,6 +71,7 @@ const App = () => {
           <Route path="/dashboard" element={<MessageList darkMode={darkMode} />} />
         </Routes>
       </AnimatePresence>
+      <Footer darkMode={darkMode} />
     </div>
   );
 };
