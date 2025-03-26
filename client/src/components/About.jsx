@@ -8,7 +8,7 @@ const About = ({ darkMode }) => {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="max-w-6xl mx-auto"
+        className="w-full"
       >
         <TextRevealCard
           text="About Me"
