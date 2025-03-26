@@ -7,11 +7,11 @@ const Footer = ({ darkMode }) => {
         <div className="flex items-center gap-2">
           <img src="/logos/copyright.png" alt="Copyright" className="h-5 w-5" />
           <p className={`text-sm ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
-            Krishna Sonar
+            Krishna Sonar (2025)
           </p>
         </div>
         <p className={`text-sm mt-2 ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
-          Made with love using Acernity UI and Icons8
+          Made with love using Acerternity UI and Icons8
         </p>
       </div>
     </footer>
