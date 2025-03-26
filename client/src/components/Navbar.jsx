@@ -6,17 +6,13 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
   const links = ["Home", "About", "Projects", "Skills", "Contact"];
 
   return (
-    <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        darkMode ? "bg-gray-900" : "bg-white"
-      } md:bg-opacity-100 bg-opacity-100 md:bg-transparent`}
-    >
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${darkMode ? "bg-gray-900" : "bg-white"} shadow-lg`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <a href="https://mern-threejs-portfolio.vercel.app">
+            <a href="http://localhost:3000/">
               <img
-                src="logos/krs-logo.png"
+                src="/logos/krs-logo.png"
                 alt="KRS Logo"
                 className="h-8 sm:h-10 w-auto max-w-full"
               />
@@ -24,7 +20,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
             {links.map((link) => (
               <motion.div
                 key={link}
@@ -42,6 +38,16 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             >
               {darkMode ? "🌞" : "🌙"}
             </button>
+            {/* Social Icons */}
+            <a href="https://github.com/Krishna-R-Sonar" target="_blank" rel="noopener noreferrer">
+              <img src="/logos/github.png" alt="GitHub" className="h-6 w-6 hover:opacity-75 transition-opacity" />
+            </a>
+            <a href="https://www.linkedin.com/in/krishna-s-ba906525a" target="_blank" rel="noopener noreferrer">
+              <img src="/logos/linkedin.png" alt="LinkedIn" className="h-6 w-6 hover:opacity-75 transition-opacity" />
+            </a>
+            <a href="https://drive.google.com/file/d/1DGuEZ3Thh3K-GVM5i6ZXY09xc6su3qES/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+              <img src="/logos/resume.png" alt="Resume" className="h-6 w-6 hover:opacity-75 transition-opacity" />
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -90,6 +96,18 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                 {link}
               </a>
             ))}
+            {/* Social Icons in Mobile Menu */}
+            <div className="flex justify-center gap-4 mt-4">
+              <a href="https://github.com/Krishna-R-Sonar" target="_blank" rel="noopener noreferrer">
+                <img src="/logos/github.png" alt="GitHub" className="h-8 w-8 hover:opacity-75 transition-opacity" />
+              </a>
+              <a href="https://www.linkedin.com/in/krishna-s-ba906525a" target="_blank" rel="noopener noreferrer">
+                <img src="/logos/linkedin.png" alt="LinkedIn" className="h-8 w-8 hover:opacity-75 transition-opacity" />
+              </a>
+              <a href="https://drive.google.com/file/d/1DGuEZ3Thh3K-GVM5i6ZXY09xc6su3qES/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <img src="/logos/resume.png" alt="Resume" className="h-8 w-8 hover:opacity-75 transition-opacity" />
+              </a>
+            </div>
           </div>
         </motion.div>
       )}
