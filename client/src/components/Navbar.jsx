@@ -14,7 +14,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <a href="http://localhost:3000/">
+            <a href="https://mern-threejs-portfolio.vercel.app">
               <img
                 src="logos/krs-logo.png"
                 alt="KRS Logo"
