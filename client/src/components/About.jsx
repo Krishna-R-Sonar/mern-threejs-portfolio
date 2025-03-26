@@ -13,7 +13,7 @@ const About = ({ darkMode }) => {
         <TextRevealCard
           text="About Me"
           revealText="I'm a full-stack developer specializing in building modern web applications with React, Node.js, and Three.js. Passionate about creating interactive 3D experiences."
-          className="w-full md:w-[50rem] lg:w-[60rem]"
+          className="w-full md:w-[50rem] lg:w-[60rem] mx-auto"
         />
       </motion.div>
     </section>
