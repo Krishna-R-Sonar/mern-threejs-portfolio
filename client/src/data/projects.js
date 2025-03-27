@@ -1,18 +1,20 @@
 // client/data/projects.js
 export const projects = [
   {
-    title: "3D Portfolio",
-    description: "Interactive 3D portfolio built with Three.js and React",
-    githubLink: "https://github.com/yourusername/3d-portfolio",
+    title: "Blockchain Task Manager",
+    description: "A decentralized task manager built on the Ethereum blockchain, ensuring secure, transparent, and immutable task tracking.",
+    githubLink: "https://github.com/Krishna-R-Sonar/blockchain-Task-Manager-tech",
+    deployedLink: "https://task-manager-nine-self.vercel.app"
   },
   {
-    title: "E-commerce Platform",
-    description: "Full-stack e-commerce solution with Node.js and MongoDB",
-    githubLink: "https://github.com/yourusername/ecommerce-platform",
+    title: "CampusNotes",
+    description: "Share and acquire study materials with your campus community",
+    githubLink: "https://github.com/Krishna-R-Sonar/campusnotes-react-frontend/tree/master",
+    deployedLink: "https://campusnotes-react-frontend.vercel.app"
   },
   {
-    title: "Task Manager",
-    description: "Real-time collaborative task management application",
-    githubLink: "https://github.com/yourusername/task-manager",
+    title: "TalentTrack",
+    description: "Job portal website",
+    githubLink: "https://github.com/Krishna-R-Sonar/TalentTrack",
   },
 ];
