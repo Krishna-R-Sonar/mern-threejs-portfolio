@@ -43,18 +43,34 @@ const Projects = ({ darkMode }) => {
               >
                 {project.description}
               </p>
-              <a
-                href={project.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`mt-4 inline-block px-4 py-2 rounded-md relative z-20 transition-colors text-sm sm:text-base ${
-                  darkMode
-                    ? "bg-blue-600 text-white hover:bg-blue-700"
-                    : "bg-blue-500 text-white hover:bg-blue-600"
-                }`}
-              >
-                View in GitHub
-              </a>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`px-4 py-2 rounded-md relative z-20 transition-colors text-sm sm:text-base ${
+                    darkMode
+                      ? "bg-blue-600 text-white hover:bg-blue-700"
+                      : "bg-blue-500 text-white hover:bg-blue-600"
+                  }`}
+                >
+                  View in GitHub
+                </a>
+                {project.deployedLink && (
+                  <a
+                    href={project.deployedLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`px-4 py-2 rounded-md relative z-20 transition-colors text-sm sm:text-base ${
+                      darkMode
+                        ? "bg-green-600 text-white hover:bg-green-700"
+                        : "bg-green-500 text-white hover:bg-green-600"
+                    }`}
+                  >
+                    Web Link
+                  </a>
+                )}
+              </div>
             </CardSpotlight>
           </motion.div>
         ))}
