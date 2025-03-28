@@ -29,7 +29,6 @@ html {
   background: #555;
 }
 
-/* Add this at the end of your index.css or in a new CSS file imported in your project */
 .text-hover-effect {
   background: linear-gradient(90deg, #00c6ff, #0072ff);
   background-size: 200% 100%;
@@ -41,4 +40,25 @@ html {
 
 .group:hover .text-hover-effect {
   background-position: 100% 50%;
+}
+
+/* Typewriter effect styles */
+.highlight {
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: currentColor;
+  margin-left: 2px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
 }
