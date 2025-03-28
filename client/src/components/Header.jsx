@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { TextHoverEffect } from "./ui/text-hover-effect";
 import { CardContainer, CardBody, CardItem } from "./ui/3d-card";
+import { TypewriterText } from "./ui/typewriter-text"; // Added import
 
 const Header = ({ darkMode }) => {
   return (
@@ -19,7 +20,10 @@ const Header = ({ darkMode }) => {
             <TextHoverEffect text="Welcome to My Portfolio" />
           </div>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mt-4">
-            3D Developer & Creative Engineer
+            <TypewriterText
+              text="Aspiring Blockchain & MERN Developer dedicated to crafting innovative, secure, and scalable digital solutions."
+              highlightWords={["Blockchain", "MERN", "innovative", "secure", "scalable"]}
+            />
           </p>
         </motion.div>
         <CardContainer className="w-full max-w-[320px] py-0">
