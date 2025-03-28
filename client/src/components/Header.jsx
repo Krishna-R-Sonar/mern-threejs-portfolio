@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { TextHoverEffect } from "./ui/text-hover-effect";
 import { CardContainer, CardBody, CardItem } from "./ui/3d-card";
-import { TypewriterText } from "./ui/typewriter-text"; // Added import
+import { TypewriterText } from "./ui/typewriter-text";
 
 const Header = ({ darkMode }) => {
   return (
