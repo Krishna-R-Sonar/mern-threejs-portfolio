@@ -4,7 +4,7 @@ export const TypewriterText = ({ text, highlightWords, className }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const words = text.split(" ");
   const charArray = [];
-  
+
   // Build an array of characters with highlight information
   words.forEach((word, wordIndex) => {
     const cleanWord = word.replace(/[^a-zA-Z0-9]/g, "");
@@ -28,7 +28,7 @@ export const TypewriterText = ({ text, highlightWords, className }) => {
   }, [currentIndex, charArray.length]);
 
   return (
-    <span className={className}>
+    <span className={`${className} inline-block whitespace-normal`}>
       {charArray.slice(0, currentIndex).map((item, index) => (
         <span key={index} className={item.isHighlighted ? "highlight" : ""}>
           {item.char}
