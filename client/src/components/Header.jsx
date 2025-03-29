@@ -39,6 +39,7 @@ const Header = ({ darkMode }) => {
                   src="/logos/pHOTO.jpg"
                   className="w-full h-full object-cover"
                   alt="My Photo"
+                  loading="lazy"
                 />
               </div>
             </CardItem>
