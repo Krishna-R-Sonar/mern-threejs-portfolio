@@ -19,8 +19,8 @@ const Header = ({ darkMode }) => {
           <div className="h-20 sm:h-24 flex items-center justify-center">
             <TextHoverEffect text="Welcome to My Portfolio" />
           </div>
-          <div className="relative w-full h-12 sm:h-16 overflow-hidden">
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mt-4 absolute top-0 left-0 w-full">
+          <div className="relative w-full min-h-[48px] sm:min-h-[64px] md:min-h-[80px] flex items-center justify-center">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mt-4 w-full">
               <TypewriterText
                 text="Aspiring Blockchain & MERN Developer dedicated to crafting innovative, secure, and scalable digital solutions."
                 highlightWords={["Blockchain", "MERN", "innovative", "secure", "scalable"]}
