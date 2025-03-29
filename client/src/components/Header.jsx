@@ -14,17 +14,19 @@ const Header = ({ darkMode }) => {
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="text-center z-10 max-w-2xl"
+          className="text-center z-10 max-w-2xl flex flex-col items-center"
         >
           <div className="h-20 sm:h-24 flex items-center justify-center">
             <TextHoverEffect text="Welcome to My Portfolio" />
           </div>
-          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mt-4">
-            <TypewriterText
-              text="Aspiring Blockchain & MERN Developer dedicated to crafting innovative, secure, and scalable digital solutions."
-              highlightWords={["Blockchain", "MERN", "innovative", "secure", "scalable"]}
-            />
-          </p>
+          <div className="relative w-full h-12 sm:h-16 overflow-hidden">
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mt-4 absolute top-0 left-0 w-full">
+              <TypewriterText
+                text="Aspiring Blockchain & MERN Developer dedicated to crafting innovative, secure, and scalable digital solutions."
+                highlightWords={["Blockchain", "MERN", "innovative", "secure", "scalable"]}
+              />
+            </p>
+          </div>
         </motion.div>
         <CardContainer className="w-full max-w-[320px] py-0">
           <CardBody
