@@ -11,7 +11,7 @@ const Footer = ({ darkMode }) => {
           </p>
         </div>
         <p className={`text-sm mt-2 ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
-          Made with love using Acerternity UI and Icons8
+          Credits: Acerternity UI and Icons8
         </p>
       </div>
     </footer>
