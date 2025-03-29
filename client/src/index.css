@@ -62,3 +62,9 @@ html {
   50% { opacity: 0; }
   100% { opacity: 1; }
 }
+
+@media (max-width: 640px) {
+  .cursor {
+    height: 1.2em;
+  }
+}
