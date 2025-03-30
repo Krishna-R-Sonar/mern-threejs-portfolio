@@ -64,7 +64,7 @@ export const TextRevealCard = ({ text, revealText, children, className }) => {
     >
       {children}
 
-      <div className="relative flex items-center justify-center overflow-hidden min-h-40">
+      <div className="relative flex items-center justify-center overflow-hidden min-h-56">
         <motion.div
           style={{ width: "100%" }}
           animate={
@@ -77,7 +77,7 @@ export const TextRevealCard = ({ text, revealText, children, className }) => {
         >
           <p
             style={{ textShadow: "4px 4px 15px rgba(0,0,0,0.5)" }}
-            className="text-sm sm:text-lg md:text-xl py-10 font-bold text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300 whitespace-normal text-center"
+            className="text-xs sm:text-base md:text-lg py-10 font-bold text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300 whitespace-normal text-center"
           >
             {revealText}
           </p>
@@ -93,7 +93,7 @@ export const TextRevealCard = ({ text, revealText, children, className }) => {
         ></motion.div>
 
         <div className="overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]">
-          <p className="text-sm sm:text-lg md:text-xl py-10 font-bold bg-clip-text text-transparent bg-[#323238] whitespace-normal text-center">
+          <p className="text-xs sm:text-base md:text-lg py-10 font-bold bg-clip-text text-transparent bg-[#323238] whitespace-normal text-center">
             {text}
           </p>
           <MemoizedStars />
