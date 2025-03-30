@@ -26,7 +26,7 @@ export const TextHoverEffect = ({ text, duration }) => {
       ref={svgRef}
       width="100%"
       height="100%"
-      viewBox="0 0 600 100" // Adjusted for longer text
+      viewBox="0 0 600 100" // Adjusted for longer text like "Welcome to My Portfolio"
       xmlns="http://www.w3.org/2000/svg"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -41,15 +41,11 @@ export const TextHoverEffect = ({ text, duration }) => {
           cy="50%"
           r="25%"
         >
-          {hovered && (
-            <>
-              <stop offset="0%" stopColor="#eab308" />
-              <stop offset="25%" stopColor="#ef4444" />
-              <stop offset="50%" stopColor="#3b82f6" />
-              <stop offset="75%" stopColor="#06b6d4" />
-              <stop offset="100%" stopColor="#8b5cf6" />
-            </>
-          )}
+          <stop offset="0%" stopColor="#eab308" />
+          <stop offset="25%" stopColor="#ef4444" />
+          <stop offset="50%" stopColor="#3b82f6" />
+          <stop offset="75%" stopColor="#06b6d4" />
+          <stop offset="100%" stopColor="#8b5cf6" />
         </linearGradient>
 
         <motion.radialGradient
@@ -66,7 +62,30 @@ export const TextHoverEffect = ({ text, duration }) => {
         <mask id="textMask">
           <rect x="0" y="0" width="100%" height="100%" fill="url(#revealMask)" />
         </mask>
+
+        {/* Define the animation for mobile view */}
+        <style>
+          {`
+            @keyframes gradientShift {
+              0% { stroke: url(#textGradient); }
+              25% { stroke: #ef4444; }
+              50% { stroke: #3b82f6; }
+              75% { stroke: #06b6d4; }
+              100% { stroke: url(#textGradient); }
+            }
+            .mobile-animation {
+              animation: gradientShift 3s infinite;
+            }
+            @media (min-width: 768px) {
+              .mobile-animation {
+                animation: none;
+              }
+            }
+          `}
+        </style>
       </defs>
+
+      {/* Base text layer */}
       <text
         x="50%"
         y="50%"
@@ -80,6 +99,8 @@ export const TextHoverEffect = ({ text, duration }) => {
       >
         {text}
       </text>
+
+      {/* Animated outline text */}
       <motion.text
         x="50%"
         y="50%"
@@ -93,6 +114,8 @@ export const TextHoverEffect = ({ text, duration }) => {
       >
         {text}
       </motion.text>
+
+      {/* Text with gradient and mobile animation */}
       <text
         x="50%"
         y="50%"
@@ -101,7 +124,10 @@ export const TextHoverEffect = ({ text, duration }) => {
         stroke="url(#textGradient)"
         strokeWidth="1"
         mask="url(#textMask)"
-        className="fill-transparent font-sans text-5xl font-bold"
+        className={cn(
+          "fill-transparent font-sans text-5xl font-bold mobile-animation",
+          { "md:stroke-[url(#textGradient)]": hovered }
+        )}
       >
         {text}
       </text>
