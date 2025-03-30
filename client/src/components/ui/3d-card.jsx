@@ -1,5 +1,5 @@
 // client/src/components/ui/3d-card.jsx
-import { cn } from "../lib/utils"; // Adjust path based on your project structure
+import { cn } from "../lib/utils"; // Adjust the path based on your project structure
 import React, { createContext, useState, useContext, useRef, useEffect } from "react";
 
 const MouseEnterContext = createContext(undefined);
@@ -54,7 +54,7 @@ export const CardBody = ({ children, className }) => {
   return (
     <div
       className={cn(
-        "h-96 w-96 [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]",
+        "[transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]",
         className
       )}
     >
