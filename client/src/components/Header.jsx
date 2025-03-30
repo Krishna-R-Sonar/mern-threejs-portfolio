@@ -8,7 +8,7 @@ const Header = ({ darkMode }) => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-4"
+      className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-4 pt-16 md:pt-0"
     >
       <div className="flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-10 max-w-5xl mx-auto w-full">
         <motion.div
