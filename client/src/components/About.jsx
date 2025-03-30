@@ -12,7 +12,7 @@ const About = ({ darkMode }) => {
       >
         <TextRevealCard
           text="About Me"
-          revealText="I'm a full-stack developer specializing in building modern web applications with React, Node.js, and Three.js. Passionate about creating interactive 3D experiences."
+          revealText="I am a passionate Blockchain and MERN developer focused on crafting innovative, user-centric experiences. I actively seek opportunities to collaborate with dynamic teams, forward-thinking individuals, and experienced mentors to tackle real-world challenges and build impactful solutions. Committed to lifelong learning, I continuously embrace new technologies and leverage advanced AI tools—such as ChatGPT, Deepseek, and Grok 3—to deepen my understanding, enhance my coding efficiency, and bring creative ideas to life. If you're looking for someone eager to push technological boundaries and contribute to groundbreaking projects, let's connect and build the future together."
           className="w-full md:w-[50rem] lg:w-[60rem] mx-auto"
         />
       </motion.div>
