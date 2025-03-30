@@ -27,14 +27,31 @@ export const TypewriterText = ({ text, highlightWords, className }) => {
     }
   }, [currentIndex, charArray.length]);
 
+  // Calculate the full text to reserve space
+  const fullText = charArray.map((item) => item.char).join("");
+
   return (
-    <span className={`${className} inline-block whitespace-normal`}>
-      {charArray.slice(0, currentIndex).map((item, index) => (
-        <span key={index} className={item.isHighlighted ? "highlight" : ""}>
-          {item.char}
-        </span>
-      ))}
-      {currentIndex < charArray.length && <span className="cursor">|</span>}
-    </span>
+    <div className="relative">
+      {/* Invisible span to reserve space for the full text */}
+      <span className="invisible" aria-hidden="true">
+        {fullText}
+      </span>
+      {/* Typewriter text positioned over the invisible span */}
+      <span
+        className={`${className} absolute top-0 left-0 inline-block whitespace-normal`}
+      >
+        {charArray.slice(0, currentIndex).map((item, index) => (
+          <span
+            key={index}
+            className={item.isHighlighted ? "highlight" : ""}
+          >
+            {item.char}
+          </span>
+        ))}
+        {currentIndex < charArray.length && (
+          <span className="cursor">|</span>
+        )}
+      </span>
+    </div>
   );
 };
