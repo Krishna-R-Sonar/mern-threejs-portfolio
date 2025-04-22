@@ -7,24 +7,32 @@ import { cn } from "../lib/utils";
 export const TextRevealCard = ({ text, revealText, children, className }) => {
   const [widthPercentage, setWidthPercentage] = useState(0);
   const cardRef = useRef(null);
-  const [left, setLeft] = useState(0);
-  const [localWidth, setLocalWidth] = useState(0);
+  const [dimensions, setDimensions] = useState({ left: 0, width: 0 });
   const [isMouseOver, setIsMouseOver] = useState(false);
 
+  // Update dimensions on mount and resize
   useEffect(() => {
-    if (cardRef.current) {
-      const { left, width: localWidth } = cardRef.current.getBoundingClientRect();
-      setLeft(left);
-      setLocalWidth(localWidth);
-    }
+    const updateDimensions = () => {
+      if (cardRef.current) {
+        const { left, width } = cardRef.current.getBoundingClientRect();
+        setDimensions({ left, width });
+      }
+    };
+
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+
+    return () => {
+      window.removeEventListener("resize", updateDimensions);
+    };
   }, []);
 
   function mouseMoveHandler(event) {
     event.preventDefault();
     const { clientX } = event;
     if (cardRef.current) {
-      const relativeX = clientX - left;
-      setWidthPercentage((relativeX / localWidth) * 100);
+      const relativeX = clientX - dimensions.left;
+      setWidthPercentage((relativeX / dimensions.width) * 100);
     }
   }
 
@@ -41,8 +49,8 @@ export const TextRevealCard = ({ text, revealText, children, className }) => {
     event.preventDefault();
     const clientX = event.touches[0].clientX;
     if (cardRef.current) {
-      const relativeX = clientX - left;
-      setWidthPercentage((relativeX / localWidth) * 100);
+      const relativeX = clientX - dimensions.left;
+      setWidthPercentage((relativeX / dimensions.width) * 100);
     }
   }
 
@@ -63,8 +71,7 @@ export const TextRevealCard = ({ text, revealText, children, className }) => {
       )}
     >
       {children}
-
-      <div className="relative flex items-center justify-center overflow-hidden min-h-56">
+      <div className="h-40 relative flex items-center justify-center overflow-hidden">
         <motion.div
           style={{ width: "100%" }}
           animate={
@@ -77,7 +84,7 @@ export const TextRevealCard = ({ text, revealText, children, className }) => {
         >
           <p
             style={{ textShadow: "4px 4px 15px rgba(0,0,0,0.5)" }}
-            className="text-xs sm:text-base md:text-lg py-10 font-bold text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300 whitespace-normal text-center"
+            className="text-base sm:text-2xl md:text-3xl py-10 font-bold text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300 whitespace-normal text-center"
           >
             {revealText}
           </p>
@@ -89,11 +96,10 @@ export const TextRevealCard = ({ text, revealText, children, className }) => {
             opacity: widthPercentage > 0 ? 1 : 0,
           }}
           transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
-          className="h-full w-[8px] bg-gradient-to-b from-transparent via-neutral-800 to-transparent absolute z-50 will-change-transform"
+          className="h-40 w-[8px] bg-gradient-to-b from-transparent via-neutral-800 to-transparent absolute z-50 will-change-transform"
         ></motion.div>
-
         <div className="overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]">
-          <p className="text-xs sm:text-base md:text-lg py-10 font-bold bg-clip-text text-transparent bg-[#323238] whitespace-normal text-center">
+          <p className="text-base sm:text-2xl md:text-3xl py-10 font-bold bg-clip-text text-transparent bg-[#323238] whitespace-normal text-center">
             {text}
           </p>
           <MemoizedStars />
@@ -115,6 +121,7 @@ const Stars = () => {
   const randomMove = () => Math.random() * 4 - 2;
   const randomOpacity = () => Math.random();
   const random = () => Math.random();
+
   return (
     <div className="absolute inset-0">
       {[...Array(80)].map((_, i) => (
