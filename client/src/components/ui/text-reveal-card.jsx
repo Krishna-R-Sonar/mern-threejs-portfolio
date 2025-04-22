@@ -7,15 +7,21 @@ import { cn } from "../lib/utils";
 export const TextRevealCard = ({ text, revealText, children, className }) => {
   const [widthPercentage, setWidthPercentage] = useState(0);
   const cardRef = useRef(null);
+  const textRef = useRef(null);
   const [dimensions, setDimensions] = useState({ left: 0, width: 0 });
+  const [textHeight, setTextHeight] = useState(0);
   const [isMouseOver, setIsMouseOver] = useState(false);
 
-  // Update dimensions on mount and resize
+  // Update dimensions and text height on mount and resize
   useEffect(() => {
     const updateDimensions = () => {
       if (cardRef.current) {
         const { left, width } = cardRef.current.getBoundingClientRect();
         setDimensions({ left, width });
+      }
+      if (textRef.current) {
+        const { height } = textRef.current.getBoundingClientRect();
+        setTextHeight(height);
       }
     };
 
@@ -56,6 +62,9 @@ export const TextRevealCard = ({ text, revealText, children, className }) => {
 
   const rotateDeg = (widthPercentage - 50) * 0.1;
 
+  // Calculate dynamic minimum height with additional padding
+  const dynamicMinHeight = textHeight > 0 ? `${textHeight + 40}px` : "120px";
+
   return (
     <div
       onMouseEnter={mouseEnterHandler}
@@ -71,7 +80,14 @@ export const TextRevealCard = ({ text, revealText, children, className }) => {
       )}
     >
       {children}
-      <div className="relative flex items-center justify-center min-h-[100px] sm:min-h-[120px] md:min-h-[140px] lg:min-h-[160px] xl:min-h-[180px] py-6">
+      <div
+        className="relative flex items-center justify-center"
+        style={{
+          minHeight: dynamicMinHeight,
+          paddingTop: "1.5rem",
+          paddingBottom: "1.5rem",
+        }}
+      >
         <motion.div
           style={{ width: "100%" }}
           animate={
@@ -83,6 +99,7 @@ export const TextRevealCard = ({ text, revealText, children, className }) => {
           className="absolute bg-[#1d1c20] z-20 will-change-transform"
         >
           <p
+            ref={textRef}
             style={{ textShadow: "4px 4px 15px rgba(0,0,0,0.5)" }}
             className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300 whitespace-normal text-center px-4"
           >
@@ -96,7 +113,8 @@ export const TextRevealCard = ({ text, revealText, children, className }) => {
             opacity: widthPercentage > 0 ? 1 : 0,
           }}
           transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
-          className="min-h-[100px] sm:min-h-[120px] md:min-h-[140px] lg:min-h-[160px] xl:min-h-[180px] w-[8px] bg-gradient-to-b from-transparent via-neutral-800 to-transparent absolute z-50 will-change-transform"
+          className="w-[8px] bg-gradient-to-b from-transparent via-neutral-800 to-transparent absolute z-50 will-change-transform"
+          style={{ minHeight: dynamicMinHeight }}
         ></motion.div>
         <div className="overflow-visible">
           <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold bg-clip-text text-transparent bg-[#323238] whitespace-normal text-center px-4">
