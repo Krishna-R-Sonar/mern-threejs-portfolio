@@ -6,7 +6,7 @@ Node.js and npm installed.
 MongoDB instance (local or cloud-based).
 
 Clone the repository:
-git clone https://github.com/Krishna-R-Sonar/personal-portfolio.git
+git clone https://github.com/Krishna-R-Sonar/mern-threejs-portfolio.git
 cd personal-portfolio
 
 Install frontend dependencies:
