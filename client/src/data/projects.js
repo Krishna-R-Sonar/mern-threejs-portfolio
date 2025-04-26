@@ -17,4 +17,10 @@ export const projects = [
     description: "Job portal website",
     githubLink: "https://github.com/Krishna-R-Sonar/TalentTrack",
   },
+  {
+    title: "AccessAI",
+    description: "Leveraging Gemini AI API to provide better solutions to prompts",
+    githubLink: "https://github.com/Krishna-R-Sonar/AccessAI",
+    deployedLink: "https://access-ai-iota.vercel.app/"
+  }
 ];
